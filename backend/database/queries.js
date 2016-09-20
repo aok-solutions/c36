@@ -39,7 +39,26 @@ function getSingleUser(req, res, next) {
     });
 }
 
+function createUser(req, res, next) {
+  req.body.highscore = parseInt(req.body.highscore);
+  req.body.over_eighteen = req.body.over_eighteen == "true" ? true : false;
+  db.none('insert into users(username, over_eighteen, highscore)' +
+      'values(${username}, ${over_eighteen}, ${highscore})',
+    req.body)
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Inserted one user'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
 module.exports = {
 	getAllUsers: getAllUsers,
-	getSingleUser: getSingleUser
+	getSingleUser: getSingleUser,
+	createUser: createUser
 };

@@ -20,6 +20,7 @@ module.exports = function() {
   /* Your code here */
   router.get('/api/users', db.getAllUsers);
   router.get('/api/users/:id', db.getSingleUser);
+  router.post('/api/users', db.createUser);
 
   return router
 }();
