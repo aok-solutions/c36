@@ -19,6 +19,7 @@ module.exports = function() {
 
   /* Your code here */
   router.get('/api/users', db.getAllUsers);
+  router.get('/api/users/:id', db.getSingleUser);
 
   return router
 }();
