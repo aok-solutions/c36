@@ -57,8 +57,26 @@ function createUser(req, res, next) {
     });
 }
 
+function updateUser(req, res, next) {
+	req.body.highscore = parseInt(req.body.highscore);
+  	req.body.over_eighteen = req.body.over_eighteen == "true" ? true : false;
+  db.none('update users set username=$1, over_eighteen=$2, highscore=$3 where id=$4',
+    [req.body.username, req.body.over_eighteen, req.body.highscore, parseInt(req.params.id)])
+    .then(function () {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: 'Updated user'
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
 module.exports = {
 	getAllUsers: getAllUsers,
 	getSingleUser: getSingleUser,
-	createUser: createUser
+	createUser: createUser,
+	updateUser: updateUser
 };

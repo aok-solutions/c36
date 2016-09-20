@@ -21,6 +21,7 @@ module.exports = function() {
   router.get('/api/users', db.getAllUsers);
   router.get('/api/users/:id', db.getSingleUser);
   router.post('/api/users', db.createUser);
+  router.put('/api/users/:id', db.updateUser);
 
   return router
 }();
