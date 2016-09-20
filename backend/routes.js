@@ -1,7 +1,7 @@
 'use strict'
 
 var router = require('express').Router();
-var database = require('./c36_modules/database');
+var database = require('./database/database');
 
 module.exports = function() {
 

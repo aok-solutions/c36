@@ -4,7 +4,7 @@
   "description": "Seed project for cycle 36",
   "main": "app.js",
   "scripts": {
-    "start" : "node backend/app.js",
+    "start": "node backend/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/icstars/c36#readme",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "lodash": "^4.6.1",
-    "pg": "^4.4.4"
+    "pg": "^4.4.4",
+    "pg-promise": "^5.3.3"
   }
 }
