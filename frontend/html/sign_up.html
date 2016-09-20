@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/users.css">
+  </head>
+  <body>
+    <div class="content">
+      <form action="/api/users" method="post">
+        <div class="form-group">
+          <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+        </div>
+        <input type="hidden" name="highscore" value="0">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="over_eighteen" value="true"> I am over eighteen
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

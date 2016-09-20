@@ -18,6 +18,10 @@ module.exports = function() {
   });
 
   /* Your code here */
+  router.get('/sign_up', function(req,res){
+    return res.render('sign_up.html');
+  });
+
   router.get('/api/users', db.getAllUsers);
   router.get('/api/users/:id', db.getSingleUser);
   router.post('/api/users', db.createUser);
