@@ -1,7 +1,7 @@
 'use strict'
 
 var router = require('express').Router();
-var database = require('./database/database');
+var db = require('./database/queries');
 
 module.exports = function() {
 
@@ -18,6 +18,7 @@ module.exports = function() {
   });
 
   /* Your code here */
+  router.get('/api/users', db.getAllUsers);
 
   return router
 }();
