@@ -74,9 +74,25 @@ function updateUser(req, res, next) {
     });
 }
 
+function removeUser(req, res, next) {
+  var userID = parseInt(req.params.id);
+  db.result('delete from users where id = $1', userID)
+    .then(function (result) {
+      res.status(200)
+        .json({
+          status: 'success',
+          message: `Removed ${result.rowCount} user`
+        });
+    })
+    .catch(function (err) {
+      return next(err);
+    });
+}
+
 module.exports = {
 	getAllUsers: getAllUsers,
 	getSingleUser: getSingleUser,
 	createUser: createUser,
-	updateUser: updateUser
+	updateUser: updateUser,
+	removeUser: removeUser
 };
